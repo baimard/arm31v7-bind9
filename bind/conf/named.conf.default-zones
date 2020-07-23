@@ -1,0 +1,15 @@
+// prime the server with knowledge of the root servers
+zone "." {
+	type hint;
+	file "/etc/bind/pri/db.root";
+};
+
+zone "your.domain" {
+    type master;
+    file "/etc/bind/pri/db.your.domain";
+};
+
+zone "168.192.in-addr.arpa" {
+	type master;
+	file "/etc/bind/pri/db.your.domain.inv";
+};
